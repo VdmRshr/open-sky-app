@@ -5,7 +5,6 @@ import Dashboard from "../dashboard/dashboard";
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
 
-
 export default class App extends Component {
 
 
@@ -13,8 +12,7 @@ export default class App extends Component {
         isLoggedIn: false
     };
 
-    onLogin = ( password) => {
-        console.log(password);
+    onLogin = () => {
         this.setState({
             isLoggedIn: true
         })
@@ -31,8 +29,8 @@ export default class App extends Component {
                         <Route path='/' exact
                                render={() => (
                                    <Login
-                                          isLoggedIn={isLoggedIn}
-                                          onLogin={this.onLogin}/>
+                                       isLoggedIn={isLoggedIn}
+                                       onLogin={this.onLogin}/>
                                )}/>
                         <Route path='/dashboard'
                                render={() => (

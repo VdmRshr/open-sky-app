@@ -4,6 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import {styled} from '@material-ui/core/styles';
 import AirportModalContent from "../airport-modal/airport-modal-content";
 import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from "@material-ui/core/Button";
 
 
 const Item = styled(Grid)({
@@ -55,7 +57,13 @@ export default class AirportList extends Component {
                     fullWidth={true}
                     maxWidth='lg'
                 >
-                    <AirportModalContent selectedAirport={this.state.selectedItem} airportName={this.state.airportName}/>
+                    <AirportModalContent selectedAirport={this.state.selectedItem}
+                                         airportName={this.state.airportName}/>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Close
+                        </Button>
+                    </DialogActions>
                 </Dialog>
             </Grid>
         )
