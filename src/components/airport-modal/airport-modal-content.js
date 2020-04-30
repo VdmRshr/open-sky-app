@@ -19,7 +19,7 @@ const ModalSelect = styled(Select)({
 export default class AirportModalContent extends Component {
     openSkyService = new OpenSkyService();
     state = {
-        minutes: 10,
+        minutes: null,
         arrivalData: null,
         departureData:null,
         error: false
@@ -39,6 +39,10 @@ export default class AirportModalContent extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.minutes !== prevState.minutes) {
+            this.setState({
+                arrivalData: null,
+                departureData:null
+            });
             this.getArrival();
             this.getDeparture()
         }
